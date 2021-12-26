@@ -24,30 +24,30 @@ A singly connected list of integer values is used to represent the set. OOP is n
 
 <a name="l11"></a> 
 ### Creating an empty set - `Node* creatingAnEmptySet()`
-*Input parameters:* None. 
-*Output parameters:* a pointer to the first element of the list, equal to NULL.
+*Input parameters:* None. <br>
+*Output parameters:* a pointer to the first element of the list, equal to NULL.<br>
 <a name="l12"></a>
 ### Checking for an empty set - `bool emptySet(Node* first)`
-*Input parameters:* a pointer to the first item in the list.
-*Output parameters:* Boolean value.
+*Input parameters:* a pointer to the first item in the list.<br>
+*Output parameters:* Boolean value.<br>
 <a name="l13"></a>
 ### Checking whether an element belongs to a set - `bool checkingOfExistence(Node* first, int checking_value)`
-*Input parameters:* a pointer to the first element of the list, the value of the element.
-*Output parameters:* Boolean value.
+*Input parameters:* a pointer to the first element of the list, the value of the element.<br>
+*Output parameters:* Boolean value.<br>
 <a name="l14"></a> 
 ### Adding a new element to the set - `Node* add(Node*& first, int adding_value)`
-*Input parameters:* a pointer to the first element of the list, a value to be added to the list. 
-*Output parameters:* a pointer to the first element of the result list.
-*Restriction:* Adding an item to the top of the list.
+*Input parameters:* a pointer to the first element of the list, a value to be added to the list. <br>
+*Output parameters:* a pointer to the first element of the result list.<br>
+*Restriction:* Adding an item to the top of the list.<br>
 <a name="l15"></a> 
 ### The power of the set - `int powerOfTheSet (Node* first)`
-*Input parameters:* a pointer to the first item in the list. 
-*Output parameters:* integer value.
+*Input parameters:* a pointer to the first item in the list. <br>
+*Output parameters:* integer value.<br>
 <a name="l16"></a> 
 ### Creating a set - `Node* creatingSet(int quantity, int min, int max, int k)`
-*Input parameters:* the number of elements, the range of acceptable values (from min to max). k is the multiplicity coefficient for checking the satisfaction of the condition.
-*Output parameters:* a pointer to the first element of the result list. Generation of values by a random number sensor. 
-*Requirement:* check the possibility of creating a set with the specified parameters.
+*Input parameters:* the number of elements, the range of acceptable values (from min to max). k is the multiplicity coefficient for checking the satisfaction of the condition.<br>
+*Output parameters:* a pointer to the first element of the result list. Generation of values by a random number sensor. <br>
+*Requirement:* check the possibility of creating a set with the specified parameters.<br>
 <a name="l17"></a> 
 ### Output of elements of the set - `string printSet(Node* first, string separator)`
 *Input parameters:* a pointer to the first element of the list, a separator character. <br>
