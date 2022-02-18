@@ -25,4 +25,16 @@ Node* creatingSet(int quantity, int min, int max, int k);
 string printSet(Node* first, string separator);
 // Удаление множества
 Node* deleteSet(Node*& first);
+// Является ли A подмножеством B
+bool isSubset(Node* A, Node* B);
+// Проверка множеств на равенство
+bool isEqual(Node* A, Node* B);
+// Объединение множеств
+Node* combiningSets(Node* A, Node* B);
+// Пересечение множеств
+Node* intersectionOfSets(Node* A, Node* B);
+// Разность множеств
+Node* differenceOfSets(Node* A, Node* B);
+// Симметричная разность множеств
+Node* symmetricDifferenceOfSets(Node* A, Node* B);
 #endif //LABA_1_SETLAB1_12_KUDASHOV_H

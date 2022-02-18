@@ -22,7 +22,7 @@ Node* add(Node*& first, int adding_value) {
     if (!checkingOfExistence(first, adding_value)){
         Node* new_node = new Node;
         new_node->value = adding_value;
-        new_node->next = emptySet(first) ? nullptr : first;
+        new_node->next = first;
         first = new_node;
     }
     return first;
@@ -42,7 +42,7 @@ int powerOfTheSet (Node* first) {
 // Создание нового множества
 Node* creatingSet(int quantity, int min, int max, int k){
     Node* set = creatingAnEmptySet();
-    // int k = 5; // коэффициент кратности
+    // k - коэффициент кратности
     // Множество А – множество чисел, кратных 5. Множество В – множество чисел, кратных 10.
     if (k*quantity <= max - min + 1){
         while (powerOfTheSet(set) < quantity){
@@ -79,4 +79,69 @@ Node* deleteSet(Node*& first){
     }
     first = nullptr;
     return first;
+}
+// Является ли A подмножеством B
+bool isSubset(Node* A, Node* B){
+    if (emptySet(A)) return true;
+    if (powerOfTheSet(A) > powerOfTheSet(B)) return false;
+    Node* current = A;
+    while (current->next){
+        if(!checkingOfExistence(B, current->value))
+            return false;
+        current = current->next;
+    }
+    return true;
+}
+// Проверка множеств на равенство
+bool isEqual(Node* A, Node* B){
+    return isSubset(A,B) && (powerOfTheSet(A) == powerOfTheSet(B));
+}
+// Объединение множеств
+Node* combiningSets(Node* A, Node* B){
+    if (emptySet(A) || emptySet(B))
+        return creatingAnEmptySet();;
+    Node* C = A;
+    Node* current = B;
+    while (current->next) {
+        if(!checkingOfExistence(C, current->value))
+            C = add(C, current->value);
+        current = current->next;
+    }
+    if(checkingOfExistence(B, current->value))
+        C = add(C, current->value);
+    return C;
+}
+// Пересечение множеств
+Node* intersectionOfSets(Node* A, Node* B){
+    if (emptySet(A) || emptySet(B))
+        return creatingAnEmptySet();;
+    Node* C = creatingAnEmptySet();
+    Node* current = A;
+    while (current->next){
+        if(checkingOfExistence(B, current->value))
+            C = add(C, current->value);
+        current = current->next;
+    }
+    if(checkingOfExistence(B, current->value))
+        C = add(C, current->value);
+    return C;
+}
+// Разность множеств
+Node* differenceOfSets(Node* A, Node* B){
+    if (emptySet(A) || emptySet(B))
+        return creatingAnEmptySet();
+    Node* C = creatingAnEmptySet();
+    Node* current = A;
+    while (current->next){
+        if(!checkingOfExistence(B, current->value))
+            C = add(C, current->value);
+        current = current->next;
+    }
+    if(!checkingOfExistence(B, current->value))
+        C = add(C, current->value);
+    return C;
+}
+// Симметричная разность множеств
+Node* symmetricDifferenceOfSets(Node* A, Node* B){
+    return differenceOfSets(combiningSets(A,B), intersectionOfSets(A,B));
 }
