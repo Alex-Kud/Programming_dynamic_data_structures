@@ -25,6 +25,7 @@ Node* creatingSet(int quantity, int min, int max, int k);
 string printSet(Node* first, string separator);
 // Удаление множества
 Node* deleteSet(Node*& first);
+
 // Является ли A подмножеством B
 bool isSubset(Node* A, Node* B);
 // Проверка множеств на равенство

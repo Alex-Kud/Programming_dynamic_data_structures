@@ -143,5 +143,6 @@ Node* differenceOfSets(Node* A, Node* B){
 }
 // Симметричная разность множеств
 Node* symmetricDifferenceOfSets(Node* A, Node* B){
+    if (emptySet(intersectionOfSets(A,B))) return combiningSets(A,B);
     return differenceOfSets(combiningSets(A,B), intersectionOfSets(A,B));
 }

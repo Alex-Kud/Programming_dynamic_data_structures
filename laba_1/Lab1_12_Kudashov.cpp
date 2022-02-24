@@ -1,38 +1,38 @@
 #include "SetLab1_12_Kudashov.h"
-#include <clocale> //РћР±СЏР·Р°С‚РµР»СЊРЅРѕ РґР»СЏ С„СѓРЅРєС†РёРё setlocale()
+#include <clocale> //Обязательно для функции setlocale()
 int main() {
     srand( time(nullptr) );
     setlocale(LC_ALL, "Russian");
-    cout << "=================Р”Р•РњРћ Р›РђР‘Р« 1=================" << endl;
+    cout << "=================ДЕМО ЛАБЫ 1=================" << endl;
     Node* setA = creatingSet (rand() % 4 + 6, 5, 500, 5);
-    cout << "Р’С‹РІРѕРґ РјРЅРѕР¶РµСЃС‚РІР° A: " << endl << printSet(setA, " | ") << endl;
-    cout << "РњРѕС‰РЅРѕСЃС‚СЊ РјРЅРѕР¶РµСЃС‚РІР° A: " << endl << powerOfTheSet(setA) << endl;
+    cout << "Вывод множества A: " << endl << printSet(setA, " | ") << endl;
+    cout << "Мощность множества A: " << endl << powerOfTheSet(setA) << endl;
     Node* setB = creatingSet (rand() % 4 + 6, 5, 500, 10);
-    cout << "Р’С‹РІРѕРґ РјРЅРѕР¶РµСЃС‚РІР° B: " << endl << printSet(setB, " | ") << endl;
-    cout << "РњРѕС‰РЅРѕСЃС‚СЊ РјРЅРѕР¶РµСЃС‚РІР° B: " << endl << powerOfTheSet(setB) << endl;
-    cout << "----------------РџРѕСЃР»Рµ РѕС‡РёСЃС‚РєРё----------------" << endl;
+    cout << "Вывод множества B: " << endl << printSet(setB, " | ") << endl;
+    cout << "Мощность множества B: " << endl << powerOfTheSet(setB) << endl;
+    cout << "----------------После очистки----------------" << endl;
     deleteSet(setA);
-    cout << "Р’С‹РІРѕРґ РјРЅРѕР¶РµСЃС‚РІР° A: " << endl << printSet(setA, " | ") << endl;
-    cout << "РњРѕС‰РЅРѕСЃС‚СЊ РјРЅРѕР¶РµСЃС‚РІР° A: " << endl << powerOfTheSet(setA) << endl;
+    cout << "Вывод множества A: " << endl << printSet(setA, " | ") << endl;
+    cout << "Мощность множества A: " << endl << powerOfTheSet(setA) << endl;
     deleteSet(setB);
-    cout << "Р’С‹РІРѕРґ РјРЅРѕР¶РµСЃС‚РІР° B: " << endl << printSet(setB, " | ") << endl;
-    cout << "РњРѕС‰РЅРѕСЃС‚СЊ РјРЅРѕР¶РµСЃС‚РІР° B: " << endl << powerOfTheSet(setB) << endl;
-    cout << endl << "=================Р”Р•РњРћ Р›РђР‘Р« 2=================" << endl;
+    cout << "Вывод множества B: " << endl << printSet(setB, " | ") << endl;
+    cout << "Мощность множества B: " << endl << powerOfTheSet(setB) << endl;
+    cout << endl << "=================ДЕМО ЛАБЫ 2=================" << endl;
     Node* A =  creatingSet (rand() % 4 + 6, 5, 200, 10);
     Node* B =  creatingSet (rand() % 4 + 6, 5, 200, 5);
-    cout << "Р’С‹РІРѕРґ РјРЅРѕР¶РµСЃС‚РІР° A: " << endl << printSet(A, " | ") << endl;
-    cout << "Р’С‹РІРѕРґ РјРЅРѕР¶РµСЃС‚РІР° B: " << endl << printSet(B, " | ") << endl;
-    cout << "РЇРІР»СЏРµС‚СЃСЏ Р»Рё A РїРѕРґРјРЅРѕР¶РµСЃС‚РІРѕРј B: " << isSubset(A,B) << endl;
-    cout << "Р Р°РІРЅС‹ Р»Рё РјРЅРѕР¶РµСЃС‚РІР° A Рё B" << isEqual(A,B) << endl;
+    cout << "Вывод множества A: " << endl << printSet(A, " | ") << endl;
+    cout << "Вывод множества B: " << endl << printSet(B, " | ") << endl;
+    cout << "Является ли A подмножеством B: " << isSubset(A,B) << endl;
+    cout << "Равны ли множества A и B: " << isEqual(A,B) << endl;
     Node* C = combiningSets(A,B);
-    cout << "Р’С‹РІРѕРґ РѕР±СЉРµРґРёРЅРµРЅРёСЏ РјРЅРѕР¶РµСЃС‚РІ: " << endl << printSet(C, " | ") << endl;
+    cout << "Вывод объединения множеств: " << endl << printSet(C, " | ") << endl;
     Node* D = intersectionOfSets(A,B);
-    cout << "Р’С‹РІРѕРґ РїРµСЂРµСЃРµС‡РµРЅРёСЏ РјРЅРѕР¶РµСЃС‚РІ: " << endl << printSet(D, " | ") << endl;
+    cout << "Вывод пересечения множеств: " << endl << printSet(D, " | ") << endl;
     Node* E = differenceOfSets(A,B);
-    cout << "Р’С‹РІРѕРґ СЂР°Р·РЅРѕСЃС‚Рё РјРЅРѕР¶РµСЃС‚РІ A Рё B: " << endl << printSet(E, " | ") << endl;
+    cout << "Вывод разности множеств A и B: " << endl << printSet(E, " | ") << endl;
     Node* F = differenceOfSets(B,A);
-    cout << "Р’С‹РІРѕРґ СЂР°Р·РЅРѕСЃС‚Рё РјРЅРѕР¶РµСЃС‚РІ B Рё A: " << endl << printSet(F, " | ") << endl;
+    cout << "Вывод разности множеств B и A: " << endl << printSet(F, " | ") << endl;
     Node* G = symmetricDifferenceOfSets(A,B);
-    cout << "Р’С‹РІРѕРґ СЃРёРјРјРµС‚СЂРёС‡РЅРѕР№ СЂР°Р·РЅРѕСЃС‚Рё РјРЅРѕР¶РµСЃС‚РІ: " << endl << printSet(G, " | ") << endl;
+    cout << "Вывод симметричной разности множеств: " << endl << printSet(G, " | ") << endl;
     return 0;
 }
