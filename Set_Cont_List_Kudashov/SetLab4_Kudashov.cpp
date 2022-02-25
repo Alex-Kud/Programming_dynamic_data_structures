@@ -17,7 +17,8 @@ bool SetListContainer::checkingOfExistence(int checking_value) {
 }
 // Добавление нового элемента в множество в начало списка
 void SetListContainer::add(int adding_value) {
-    set.push_front(adding_value);
+    if (!checkingOfExistence(adding_value))
+        set.push_front(adding_value);
 }
 // Мощность множества
 int SetListContainer::powerOfTheSet() {
@@ -70,11 +71,11 @@ bool SetListContainer::isEqual(SetListContainer a, SetListContainer b) {
 SetListContainer SetListContainer::combiningSets(SetListContainer a, SetListContainer b) {
     if (a.emptySet() || b.emptySet())
         return *new SetListContainer();
-    a.set.sort();
-    b.set.sort();
-    a.set.merge(b.set);
-    a.set.unique();
-    return a;
+    SetListContainer c = a;
+    for (int iter: b.set)
+        if(!c.checkingOfExistence(iter))
+            c.add(iter);
+    return c;
 }
 // Пересечение множеств
 SetListContainer SetListContainer::intersectionOfSets(SetListContainer a, SetListContainer b) {
@@ -99,3 +100,44 @@ SetListContainer SetListContainer::symmetricDifferenceOfSets(const SetListContai
     if (intersectionOfSets(a,b).emptySet()) return combiningSets(a,b);
     return differenceOfSets(combiningSets(a,b), intersectionOfSets(a,b));
 }
+/*
+// Проверка множеств на равенство
+bool SetListContainer::isEqual(SetListContainer a, SetListContainer b) {
+    return a.set == b.set;
+}
+// Объединение множеств
+SetListContainer SetListContainer::combiningSets(SetListContainer a, SetListContainer b) {
+    if (a.emptySet() || b.emptySet())
+        return *new SetListContainer();
+    a.set.sort();
+    b.set.sort();
+    a.set.merge(b.set);
+    a.set.unique();
+    return a;
+}
+// Пересечение множеств
+SetListContainer SetListContainer::intersectionOfSets(SetListContainer a, SetListContainer b) {
+    if (a.emptySet() || b.emptySet())
+        return *new SetListContainer();
+    a.set.sort();
+    b.set.sort();
+    SetListContainer c = *new SetListContainer();
+    set_intersection(a.set.begin(), a.set.end(), b.set.begin(), b.set.end(), inserter(c.set,c.set.begin()));
+    return c;
+}
+// Разность множеств
+SetListContainer SetListContainer::differenceOfSets(SetListContainer a, SetListContainer b) {
+    SetListContainer c = *new SetListContainer();
+    a.set.sort();
+    b.set.sort();
+    set_difference(a.set.begin(), a.set.end(), b.set.begin(), b.set.end(), inserter(c.set,c.set.begin()));
+    return c;
+}
+// Симметричная разность множеств
+SetListContainer SetListContainer::symmetricDifferenceOfSets(SetListContainer a, SetListContainer b) {
+    SetListContainer c = *new SetListContainer();
+    a.set.sort();
+    b.set.sort();
+    set_symmetric_difference(a.set.begin(), a.set.end(), b.set.begin(), b.set.end(), inserter(c.set,c.set.begin()));
+    return c;
+}*/

@@ -34,5 +34,17 @@ public:
     static SetListContainer differenceOfSets(const SetListContainer& a, SetListContainer b);
     // Симметричная разность множеств
     static SetListContainer symmetricDifferenceOfSets(const SetListContainer& a, const SetListContainer& b);
+    /*
+    // Проверка множеств на равенство
+    static bool isEqual(SetListContainer a, SetListContainer b);
+    // Объединение множеств
+    static SetListContainer combiningSets(SetListContainer a, SetListContainer b);
+    // Пересечение множеств
+    static SetListContainer intersectionOfSets(SetListContainer a, SetListContainer b);
+    // Разность множеств
+    static SetListContainer differenceOfSets(SetListContainer a, SetListContainer b);
+    // Симметричная разность множеств
+    static SetListContainer symmetricDifferenceOfSets(SetListContainer a, SetListContainer b);
+    */
 };
 #endif //SET_CONT_LIST_KUDASHOV_SETLAB4_KUDASHOV_H
